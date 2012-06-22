@@ -1,0 +1,178 @@
+@font-face {
+	font-family: 'BirthOfAHero';
+	src: url('../fonts/BirthOfAHero.ttf') format('truetype');
+}
+
+.hero-font {
+	font-family: BirthOfAHero;
+}
+
+.pagename {
+	font-size:40pt;
+}
+
+#wordmark {
+	font-size:80pt;
+	margin-top:15px;
+	height:54px;
+}
+
+#wordmark-container {
+	background-color: #9bc72a;
+}
+
+#background-home {
+	background-image: url('../assets/line1.svg');
+}
+
+#background-photos {
+	background-image: url('../assets/bgMeeting.png'), url('../assets/line3.svg');
+	background-position: 100% 3%, 0% 45%;
+}
+
+#background-links {
+	background-image: url('../assets/line3.svg');
+}
+
+#background-meeting {
+	background-image: url('../assets/bgPhotos.png'), url('../assets/line2.svg');
+	background-position: 100% 20%;
+}
+
+.background {
+	padding-top:10px;	
+	background-repeat: no-repeat;
+	min-height: 800px;
+}
+
+/*--Paragraphs on Home Page--*/
+#intro-home {
+	top: 0px;
+	left: -20px;
+}
+
+#p2-home {
+	top:20px;
+	left: 395px;
+}
+
+#p3-home {
+	top:360px;
+	left:0px;
+}
+
+#p4-home {
+	top:390px;
+	left:660px;
+}
+/*--End Text Home Page--*/
+
+.intro {
+	position: absolute;
+	text-align: justify;
+}
+
+.absolute-children {
+	position: relative;
+}
+
+.drop-cap {
+	display: inline;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.dl-horizontal dt {
+  float: left;
+  width: 150px;
+  overflow: hidden;
+  clear: left;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dl-horizontal dd {
+  margin-left: 160px;
+}
+
+.dl-horizontal dd, dt {
+  padding-top: 1px;
+}
+
+#intro-pagename {
+	position: relative;
+	top: -550px;
+}
+
+#backdrop-home {
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#backdrop-meeting {
+	padding-top:100px;
+}
+
+.thumbnail {
+	height:90;
+	width:140;
+}
+
+#gallery {
+	position: relative;
+	top: 20px;
+	margin-left: 0px;
+	height: 471px; 		/*This corresponds to 4 times the height of one row*/
+}
+
+.arrow {
+	position: absolute;
+	width: 50px;
+	height:497px;
+	background-repeat:no-repeat;
+	background-position: 0px;
+}
+
+#left-arrow {
+	background-image: url('../assets/LeftArrow.svg');
+	left:-80px;	
+}
+
+#left-arrow:hover {
+	background-position:-50px;
+}
+
+#right-arrow {
+	background-image: url('../assets/RightArrow.svg');
+	right: 210px;
+}
+
+#right-arrow:hover {
+	background-position: -50px;
+}
+
+/*Multi-use Utility classes*/
+.center {
+	text-align: center;
+}
+
+.pad-bottom {
+	padding-bottom:10px;
+}
+
+.pad-right {
+	padding-right:25px;
+}
+
+.pad-top {
+	padding-top:25px;
+}
+
+.center-vertically {
+	display: table-cell;
+	vertical-align: middle;
+}
