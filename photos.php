@@ -10,6 +10,7 @@
 		<script type="text/javascript">
 			var photos = <?php $photos = array();
 						foreach (scandir($photosDir) as $photo) {
+							if (strcmp($photo, '.gitignore') == 0) continue;
 							if (is_file($photosDir."/".$photo)) $photos[] = $photo;
 						}
 						echo json_encode($photos);?>;
@@ -31,6 +32,7 @@
 					<?php 
 					$photoID = 0;
 					foreach (scandir($photosDir) as $photo) {
+						if (strcmp($photo, '.gitignore') == 0) continue;
 						$filename = $photosDir."/".$photo;
 
 						if (is_file($filename)) {
