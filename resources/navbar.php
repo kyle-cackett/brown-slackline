@@ -12,7 +12,7 @@
 				<li id="members"><a href="members.php">Members</a></li>
 				<li id="photos"><a href="photos.php">Photos</a></li>
 				<li id="links"><a href="links.php">Links</a></li>
-				<li id="media"><a href="#">Media</a></li>
+				<li id="media"><a href="media.php">Media</a></li>
 			</ul>
 		</div>
 	</div>
