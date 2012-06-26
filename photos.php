@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 			var photos = <?php $photos = array();
 						foreach (scandir($photosDir) as $photo) {
-							if (strcmp($photo, '.gitignore') == 0) continue;
+							if (strcmp($photo, '.gitignore') == 0 || strcmp($photo,'.htaccess') == 0) continue;
 							if (is_file($photosDir."/".$photo)) $photos[] = $photo;
 						}
 						echo json_encode($photos);?>;
@@ -32,7 +32,7 @@
 					<?php 
 					$photoID = 0;
 					foreach (scandir($photosDir) as $photo) {
-						if (strcmp($photo, '.gitignore') == 0) continue;
+						if (strcmp($photo, '.gitignore') == 0 || strcmp($photo, '.htaccess') == 0) continue;
 						$filename = $photosDir."/".$photo;
 
 						if (is_file($filename)) {
@@ -63,7 +63,7 @@
 								imagedestroy($thumb);
 							}
 							#--END THUMBNAIL CREATION CODE--
-							if $photoID < $photosPerPage { ?>
+							if ($photoID < $photosPerPage) { ?>
 								<li> 
 									<img id="<?php echo "photo".$photoID?>" class="thumbnail" onclick="toggleModal('<?php echo $photosDir."/".$photo;?>');" src="<?php echo $thumbnailsDir.'/'.$photo;?>"  alt="<?php echo $photo;?>"/>
 								</li>
