@@ -62,12 +62,13 @@
 								imagejpeg($thumb, $thumbnailsDir."/".$photo);
 								imagedestroy($thumb);
 							}
-							#--END THUMBNAIL CREATION CODE--?>
-							<li> 
-								<img id="<?php echo "photo".$photoID?>" class="thumbnail" onclick="toggleModal('<?php echo $photosDir."/".$photo;?>');" src="<?php echo $thumbnailsDir.'/'.$photo;?>"  alt="<?php echo $photo;?>"/>
-							</li>
-							<?php $photoID++;
-							if ($photoID > $photosPerPage-1) break;
+							#--END THUMBNAIL CREATION CODE--
+							if $photoID < $photosPerPage { ?>
+								<li> 
+									<img id="<?php echo "photo".$photoID?>" class="thumbnail" onclick="toggleModal('<?php echo $photosDir."/".$photo;?>');" src="<?php echo $thumbnailsDir.'/'.$photo;?>"  alt="<?php echo $photo;?>"/>
+								</li>
+							<?php }
+							$photoID++;
 						}
 					}?>
 				</ul>
