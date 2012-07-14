@@ -29,7 +29,7 @@
 
 	function loggedIn() {
 		if($_COOKIE['login']) {
-			list($c_username,$cookie_hash) = split(',',$_COOKIE['login']);
+			list($c_username,$cookie_hash) = explode(',',$_COOKIE['login']);
     		if (md5($c_username.'tubular') == $cookie_hash) return true;
     	}
     	return false;
