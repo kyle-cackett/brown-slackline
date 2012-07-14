@@ -20,6 +20,7 @@
 				</div>
 			</div>
 		</div>
+		<?php require $footer;?>
 	</body>
 </html>
 

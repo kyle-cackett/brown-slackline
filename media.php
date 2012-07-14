@@ -16,9 +16,10 @@
 			<div class="container">
 				<h1 class="hero-font pagename pad-bottom">Media</h1>
 				<div class="span8 justify">
-					
+				  
 				</div>
 			</div>
 		</div>
+		<?php include $footer;?>
 	</body>
 </html>

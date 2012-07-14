@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require "resources/constants.php";?>
+<?php require_once "resources/constants.php";?>
 <html>
 	<head>
 		<title>Brown Slackline | Photos </title>
@@ -23,6 +23,7 @@
 	</head>
 	<body>
 	<?php require $navbar;?>
+	<?php require $thumbnailsScript;?>
 	<div id="background-photos" class="background">
 		<div class="container absolute-children">
 			<h1 class="hero-font pagename">Pictures</h1>
@@ -36,33 +37,8 @@
 						$filename = $photosDir."/".$photo;
 
 						if (is_file($filename)) {
-							#--THUMBNAIL CREATION CODE--runs if thumbnail does not exist (consider cronjob)
-							if (!file_exists($thumbnailsDir."/".$photo)) {
-
-								list($width,$height) = getimagesize($filename);
-								$aspectRatio = $width/$height;
-								$thumb = imagecreatetruecolor($thumbnailWidth,$thumbnailHeight);
-								$src_x = 0;
-								$src_y = 0;
-								$src_w = $width;
-								$src_h = $height;
-								if ($aspectRatio < $thumbnailRatio) {
-									//Take all width but only some of height
-									$src_h = intval($width/$thumbnailRatio);
-									$src_y = intval(($height-$src_h)/2);
-
-								} elseif ($aspectRatio > $thumbnailRatio) {
-									//Take all height but only some of width
-									$src_w = intval($height*$thumbnailRatio);
-									$src_x = intval(($width-$src_w)/2);
-								}
-
-								$image = imagecreatefromjpeg($filename);
-								imagecopyresampled($thumb, $image, 0, 0, $src_x, $src_y, $thumbnailWidth, $thumbnailHeight, $src_w, $src_h);
-								imagejpeg($thumb, $thumbnailsDir."/".$photo);
-								imagedestroy($thumb);
-							}
-							#--END THUMBNAIL CREATION CODE--
+							generateThumbnail($photo, $photosDir, $thumbnailsDir, $thumbnailWidth, $thumbnailHeight, $thumbnailRatio);
+	
 							if ($photoID < $photosPerPage) { ?>
 								<li> 
 									<img id="<?php echo "photo".$photoID?>" class="thumbnail" onclick="toggleModal('<?php echo $photosDir."/".$photo;?>');" src="<?php echo $thumbnailsDir.'/'.$photo;?>"  alt="<?php echo $photo;?>"/>
@@ -75,6 +51,14 @@
 			</div>
 			<div id="right-arrow" class="arrow center-vertically"></div>
 		</div>
+		<?php if(loggedIn()) { ?>
+		<div class="container absolute-children pad-top">	
+			<form enctype="multipart/form-data" method="post" action="uploadPhotos.php">
+				<button id="upload-photos-button" class="btn btn-primary upload-photos" type="button">Upload JPEGs</button>
+				<input id="upload-photos-input" class="upload-photos" type="file" multiple="true" name="photos[]" onchange="this.form.submit()"/>
+			</form>
+		</div>
+		<?php } ?>
 	</div>
 	<div class="modal hide fade" id="myModal">
   		<div class="modal-header">
@@ -88,5 +72,6 @@
     		<a class="btn" data-dismiss="modal">Close</a>
   		</div>
 	</div>
+	<?php include $footer;?>
 	</body>
 </html>

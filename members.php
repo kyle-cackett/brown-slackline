@@ -22,6 +22,10 @@
 							<img src="<?php echo $profilesDir."/".$member->headShot;?>"/>
 							<h3 class="hero-font center"><?php echo $member->firstName;?></h3>
 						</div>
+						<?php if(loggedIn()) { ?>
+							<button class="btn btn-warning">Edit</button>
+							<button class="btn btn-danger">Delete</button>
+						<?php } ?>
 					</div>
 					<div class="span6">
 						<p><?php echo $member->profile;?></p>
@@ -37,6 +41,7 @@
 			<?php }?>
 		</div>
 	</div>
+	<?php include $footer;?>
 </body>
 
 </html>

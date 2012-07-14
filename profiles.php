@@ -1,12 +1,4 @@
-<?php class Member {
-	public $firstName;
-	public $lastName;
-	public $profile;
-	public $interests;
-	public $actionShot;
-	public $headShot;
-}
-
+<?php 
 function getProfiles($profilesDir) {
 
 	$members = array();
