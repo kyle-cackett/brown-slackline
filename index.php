@@ -13,7 +13,7 @@
 		<?php require $navbar;?>
 			<div id="background-home" class="background">
 				<div class="container absolute-children">
-					<img id="backdrop-home" class="backdrop pad-top" src="assets/bgHome.png" height="524px" width="422px"/>
+					<img id="backdrop-home" class="center pad-top" src="assets/bgHome.png" height="524px" width="422px"/>
 					
 
 					<div id="intro-home" class="span4 intro">
@@ -56,5 +56,6 @@
 					</div>
 				</div>
 			</div>
+		<?php include $footer;?>
 	</body>
 </html>

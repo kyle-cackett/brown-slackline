@@ -1,14 +1,12 @@
-@font-face {
-	font-family: 'BirthOfAHero';
-	src: url('../fonts/BirthOfAHero.ttf') format('truetype');
+/*--Navbar and Wordmark--*/
+.center.navbar .nav,
+.center.navbar .nav > li {
+    float:none;
+    display:inline-block;
 }
 
-.hero-font {
-	font-family: BirthOfAHero;
-}
-
-.pagename {
-	font-size:40pt;
+.center .navbar-inner, h3.center {
+    text-align:center;
 }
 
 #wordmark {
@@ -21,6 +19,7 @@
 	background-color: #9bc72a;
 }
 
+/*--Backgrounds--*/
 #background-home {
 	background-image: url('../assets/line1.svg');
 }
@@ -39,10 +38,34 @@
 	background-position: 100% 20%;
 }
 
+#background-login {
+	background-image: url('../assets/bgLogin.jpg')
+}
+
 .background {
 	padding-top:10px;	
 	background-repeat: no-repeat;
-	min-height: 800px;
+	min-height: 775px;
+}
+
+#footer {
+	margin-bottom:0px;
+}
+
+div.center, img.center {
+	margin-right:auto;
+	margin-left:auto;
+}
+
+/*--Login Page--*/
+#login {
+	position:absolute;
+	width:541px;
+	height:88px;
+	top:50%;
+	left:50%;
+	margin-top:-44px;
+	margin-left:-270px;
 }
 
 /*--Paragraphs on Home Page--*/
@@ -72,18 +95,6 @@
 	text-align: justify;
 }
 
-.absolute-children {
-	position: relative;
-}
-
-.drop-cap {
-	display: inline;
-}
-
-.justify {
-	text-align: justify;
-}
-
 .dl-horizontal dt {
   float: left;
   width: 150px;
@@ -109,14 +120,13 @@
 
 #backdrop-home {
 	display: block;
-	margin-left:auto;
-	margin-right:auto;
 }
 
 #backdrop-meeting {
 	padding-top:100px;
 }
 
+/*----Photos----*/
 .thumbnail {
 	height:90;
 	width:140;
@@ -155,9 +165,43 @@
 	background-position: -50px;
 }
 
-/*Multi-use Utility classes*/
-.center {
-	text-align: center;
+#upload-photos-input {
+    opacity:0;
+    z-index:2;
+}
+
+.upload-photos{
+	position:absolute;
+	left:0%;
+	top:50%;
+}
+
+/*----Multi-use Utility classes----*/
+@font-face {
+	font-family: 'BirthOfAHero';
+	src: url('../fonts/BirthOfAHero.ttf') format('truetype');
+}
+
+.hero-font {
+	font-family: BirthOfAHero;
+}
+
+.pagename {
+	font-size:40pt;
+}
+
+.absolute-children {
+	/*Forces absolutely positioned child elements to be 
+	positioned relative to first parent of this class*/
+	position: relative;
+}
+
+.drop-cap {
+	display: inline;
+}
+
+.justify {
+	text-align: justify;
 }
 
 .pad-bottom {
