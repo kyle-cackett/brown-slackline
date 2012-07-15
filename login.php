@@ -12,7 +12,7 @@
         <div id="login">
             <?php if(loggedIn()) { ?>
                 <div id="logged-in" class="well">
-                    <h3 class="center">Successfully Logged In</h3>
+                    <h3 class="center">Successfully logged in as "<?php echo username(); ?>"</h3>
                 </div>
             <?php } else { ?>
                 <form action="authenticate.php" method="post" class="well form-horizontal">    

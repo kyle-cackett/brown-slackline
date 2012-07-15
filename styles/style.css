@@ -1,4 +1,4 @@
-/*--Navbar and Wordmark--*/
+/*--Navbar Footer and Wordmark--*/
 .center.navbar .nav,
 .center.navbar .nav > li {
     float:none;
@@ -7,6 +7,10 @@
 
 .center .navbar-inner, h3.center {
     text-align:center;
+}
+
+#footer {
+	margin-bottom:0px;
 }
 
 #wordmark {
@@ -19,7 +23,7 @@
 	background-color: #9bc72a;
 }
 
-/*--Backgrounds--*/
+/*----Backgrounds----*/
 #background-home {
 	background-image: url('../assets/line1.svg');
 }
@@ -42,19 +46,18 @@
 	background-image: url('../assets/bgLogin.jpg')
 }
 
+#backdrop-home {
+	display: block;
+}
+
+#backdrop-meeting {
+	padding-top:100px;
+}
+
 .background {
 	padding-top:10px;	
 	background-repeat: no-repeat;
 	min-height: 775px;
-}
-
-#footer {
-	margin-bottom:0px;
-}
-
-div.center, img.center {
-	margin-right:auto;
-	margin-left:auto;
 }
 
 /*--Login Page--*/
@@ -118,20 +121,60 @@ div.center, img.center {
 	top: -550px;
 }
 
-#backdrop-home {
-	display: block;
+/*----Members----*/
+#new-member-info textarea {
+	resize:vertical;
 }
 
-#backdrop-meeting {
-	padding-top:100px;
+.headshot-control {
+	position:absolute;
+	left:34px;
+	bottom:-33px;
+}
+
+#headshot-input {
+	width:77px;
+	margin-bottom:0px;
+}
+
+#headshot-standin {
+	height: 180px;
+}
+
+.actionshot-control {
+	position: absolute;
+	left:108px;
+	bottom:-33px;
+}
+
+#actionshot-input {
+	width:84px;
+}
+
+#actionshot-standin {
+	height: 180px;
+}
+
+.name-input {
+	width:47%;
+	margin-bottom: 5px;
+}
+
+#profile {
+	width:97%;
+}
+
+#preview-actionshot {
+	max-height:180px;
+	max-width:290px;
+}
+
+#preview-headshot {
+	max-height:180px;
+	max-width:130px;
 }
 
 /*----Photos----*/
-.thumbnail {
-	height:90;
-	width:140;
-}
-
 #gallery {
 	position: relative;
 	top: 20px;
@@ -165,15 +208,14 @@ div.center, img.center {
 	background-position: -50px;
 }
 
-#upload-photos-input {
-    opacity:0;
-    z-index:2;
-}
-
-.upload-photos{
+.upload-photos-control {
 	position:absolute;
 	left:0%;
 	top:50%;
+}
+
+#upload-photos-input {
+	width:108px;
 }
 
 /*----Multi-use Utility classes----*/
@@ -204,6 +246,14 @@ div.center, img.center {
 	text-align: justify;
 }
 
+.full-width {
+	width:100%;
+}
+
+.four-fifths-width {
+	width:80%;
+}
+
 .pad-bottom {
 	padding-bottom:10px;
 }
@@ -219,4 +269,17 @@ div.center, img.center {
 .center-vertically {
 	display: table-cell;
 	vertical-align: middle;
+}
+
+div.center, img.center {
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.masked-file-input {
+	margin-bottom:0;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity=0);
+	z-index: 2;
 }

@@ -8,24 +8,55 @@
 		var active = "#members";
 	</script>
 	<?php require $resources;?>
+	<script type="text/javascript" src="scripts/pagespecificscripts/members.js"></script> <!fix this>
 </head>
 <?php include "profiles.php";?>
 <body>
 	<?php require $navbar;?>
 	<div class="background">
 		<div class="container">
-			<h1 class="hero-font pagename pad-bottom">Members</h1>
+			<h1 class="hero-font pagename pad-bottom">Members
+				<?php if(loggedIn()) { ?> <button class="btn btn-primary pull-right" type="button" onclick="$('#new-member-info').toggle(600);">Add Member</button><?php } ?>
+			</h1>
+			<?php if(loggedIn()) {?>
+			<div id="new-member-info" class="row pad-bottom">
+				<form enctype="multipart/form-data" action="createProfile.php" method="post">
+					<div class="span2">
+						<div id="headshot-standin" class="thumbnail absolute-children">
+							<img id="preview-headshot" class="preview" src="#" alt="headshot-preview"/>
+							<button class="headshot-control btn btn-success">Headshot</button>
+							<input id="headshot-input" class="headshot-control masked-file-input" type="file" name="headShot" onchange="previewUpload(this,'#preview-headshot');"/>
+						</div>
+					</div>
+					<div class="span6">
+						<input id="first-name" class="name-input" type="text" name="firstName" placeholder="First Name"/>
+						<input id="last-name" class="name-input" type="text" name="lastName" placeholder="Last Name"/><br/>
+						<textarea id="profile" name="profile" placeholder="Profile" rows="8"></textarea><br/>
+						<input class="four-fifths-width" type="text" name="interests" placeholder="Interests"/>
+						<input type="submit" value="Submit" class="pull-right btn btn-inverse"/>
+					</div>
+					<div class="span4">
+						<div id="actionshot-standin" class="thumbnail absolute-children">
+							<img id="preview-actionshot" class="preview" src="#" alt="actionshot-preview"/>
+							<button class="actionshot-control btn btn-success">Action Shot</button>
+							<input id="actionshot-input" class="actionshot-control masked-file-input" type="file" name="actionShot" onchange="previewUpload(this, '#preview-actionshot');"/>
+						</div>
+					</div>	
+				</form>
+			</div>
+			<hr/>
+			<?php } ?>
 			<?php foreach (getProfiles($profilesDir) as $member) {?>
 				<div class="row pad-bottom">
 					<div class="span2">
 						<div class="thumbnail">
 							<img src="<?php echo $profilesDir."/".$member->headShot;?>"/>
 							<h3 class="hero-font center"><?php echo $member->firstName;?></h3>
+							<?php if(loggedIn() && ($member->createdBy === username() || username() === "admin")) { ?>
+							<button class="btn btn-warning" type="button">Edit</button>
+							<button class="btn btn-danger" type="button">Delete</button>
+							<?php } ?>
 						</div>
-						<?php if(loggedIn()) { ?>
-							<button class="btn btn-warning">Edit</button>
-							<button class="btn btn-danger">Delete</button>
-						<?php } ?>
 					</div>
 					<div class="span6">
 						<p><?php echo $member->profile;?></p>

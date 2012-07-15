@@ -38,7 +38,7 @@
 
 						if (is_file($filename)) {
 							generateThumbnail($photo, $photosDir, $thumbnailsDir, $thumbnailWidth, $thumbnailHeight, $thumbnailRatio);
-	
+
 							if ($photoID < $photosPerPage) { ?>
 								<li> 
 									<img id="<?php echo "photo".$photoID?>" class="thumbnail" onclick="toggleModal('<?php echo $photosDir."/".$photo;?>');" src="<?php echo $thumbnailsDir.'/'.$photo;?>"  alt="<?php echo $photo;?>"/>
@@ -54,8 +54,8 @@
 		<?php if(loggedIn()) { ?>
 		<div class="container absolute-children pad-top">	
 			<form enctype="multipart/form-data" method="post" action="uploadPhotos.php">
-				<button id="upload-photos-button" class="btn btn-primary upload-photos" type="button">Upload JPEGs</button>
-				<input id="upload-photos-input" class="upload-photos" type="file" multiple="true" name="photos[]" onchange="this.form.submit()"/>
+				<button class="btn btn-primary upload-photos-control" type="button">Upload JPEGs</button>
+				<input id="upload-photos-input" class="upload-photos-control masked-file-input" type="file" multiple="true" name="photos[]" onchange="this.form.submit()"/>
 			</form>
 		</div>
 		<?php } ?>

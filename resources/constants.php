@@ -25,6 +25,7 @@
 		public $interests;
 		public $actionShot;
 		public $headShot;
+		public $createdBy;
 	}
 
 	function loggedIn() {
@@ -33,5 +34,10 @@
     		if (md5($c_username.'tubular') == $cookie_hash) return true;
     	}
     	return false;
+	}
+
+	function username() {
+		if($_COOKIE['login']) return substr($_COOKIE['login'], 0, strpos($_COOKIE['login'],','));
+		return NULL;
 	}	
 ?>
