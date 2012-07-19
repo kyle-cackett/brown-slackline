@@ -12,10 +12,9 @@
 	<body>
 		<?php require $navbar;?>
 		<div id="background-links" class="background">
-			<img id="backdrop-links" class="backdrop pull-left" src="assets/bgLinks.png"/>
 			<div class="container">
-				<h1 class="hero-font pagename pad-bottom">Links</h1>
-				<div class="span8 justify">
+				<h1 class="hero-font pagename pad-bottom offset1">Links</h1>
+				<div class="span8 justify pad-left offset1">
 					<h3>Slackline Companies</h3>	
 						<dl class="dl-horizontal">
 							<dt><a href="http://www.gibbonslacklines.com/">Gibbon Slacklines</a></dt>

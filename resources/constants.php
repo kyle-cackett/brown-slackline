@@ -26,6 +26,14 @@
 		public $actionShot;
 		public $headShot;
 		public $createdBy;
+
+		function getFullname() {
+			return strtolower($this->firstName)."-".strtolower($this->lastName);
+		}
+
+		function getFilename() {
+			return strtolower($this->firstName)."_".strtolower($this->lastName).".txt";
+		}
 	}
 
 	function loggedIn() {
@@ -37,7 +45,7 @@
 	}
 
 	function username() {
-		if($_COOKIE['login']) return substr($_COOKIE['login'], 0, strpos($_COOKIE['login'],','));
+		if($_COOKIE['login'] && loggedIn()) return substr($_COOKIE['login'], 0, strpos($_COOKIE['login'],','));
 		return NULL;
 	}	
 ?>

@@ -10,7 +10,7 @@
 	<?php require $resources;?>
 	<script type="text/javascript" src="scripts/pagespecificscripts/members.js"></script> <!fix this>
 </head>
-<?php include "profiles.php";?>
+<?php include "profilesHelper.php";?>
 <body>
 	<?php require $navbar;?>
 	<div class="background">
@@ -20,7 +20,7 @@
 			</h1>
 			<?php if(loggedIn()) {?>
 			<div id="new-member-info" class="row pad-bottom">
-				<form enctype="multipart/form-data" action="createProfile.php" method="post">
+				<form enctype="multipart/form-data" action="profiles.php" method="post">
 					<div class="span2">
 						<div id="headshot-standin" class="thumbnail absolute-children">
 							<img id="preview-headshot" class="preview" src="#" alt="headshot-preview"/>
@@ -47,20 +47,20 @@
 			<hr/>
 			<?php } ?>
 			<?php foreach (getProfiles($profilesDir) as $member) {?>
-				<div class="row pad-bottom">
+				<div id="<?php echo $member->getFullname();?>" class="row pad-bottom">
 					<div class="span2">
 						<div class="thumbnail">
 							<img src="<?php echo $profilesDir."/".$member->headShot;?>"/>
 							<h3 class="hero-font center"><?php echo $member->firstName;?></h3>
-							<?php if(loggedIn() && ($member->createdBy === username() || username() === "admin")) { ?>
-							<button class="btn btn-warning" type="button">Edit</button>
-							<button class="btn btn-danger" type="button">Delete</button>
+							<?php if(loggedIn() && ($member->createdBy === username() || strcmp(username(), "admin") === 0)) { ?>
+							<button class="btn btn-warning" type="button" onclick="editableProfile('#<?php echo $member->getFullname();?>');">Edit</button>
+							<button class="btn btn-danger" type="button" onclick="deleteProfile('<?php echo $member->getFilename();?>');">Delete</button>
 							<?php } ?>
 						</div>
 					</div>
 					<div class="span6">
-						<p><?php echo $member->profile;?></p>
-						<p><?php echo $member->interests;?></p>
+						<p class="profile-text"><?php echo $member->profile;?></p>
+						<p class="interests"><?php echo $member->interests;?></p>
 					</div>
 					<div class="span4">
 						<div class="thumbnail">

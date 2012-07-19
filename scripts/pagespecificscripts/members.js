@@ -15,3 +15,17 @@ function previewUpload(input, previewImgID) {
     $(previewImgID).show();
   }
 }
+
+function deleteProfile(filename) {
+  $.ajax({
+    url: 'profiles.php',
+    type: 'DELETE',
+    data: {filename:filename},
+    success: function (data, textStatus, jqXHR) {
+      location.reload();
+    },
+    error: function () {
+      console.log("Error!");
+    }
+  });
+}

@@ -34,7 +34,8 @@
 }
 
 #background-links {
-	background-image: url('../assets/line3.svg');
+	background-image: url('../assets/bgLinks.png'), url('../assets/line3.svg');
+	background-position: -5% 0%, 0% -10%;
 }
 
 #background-meeting {
@@ -48,10 +49,6 @@
 
 #backdrop-home {
 	display: block;
-}
-
-#backdrop-meeting {
-	padding-top:100px;
 }
 
 .background {
@@ -78,17 +75,17 @@
 }
 
 #p2-home {
-	top:20px;
-	left: 395px;
+	top:10px;
+	left: 400px;
 }
 
 #p3-home {
-	top:360px;
-	left:0px;
+	top:340px;
+	left:-20px;
 }
 
 #p4-home {
-	top:390px;
+	top:360px;
 	left:660px;
 }
 /*--End Text Home Page--*/
@@ -260,6 +257,10 @@
 
 .pad-right {
 	padding-right:25px;
+}
+
+.pad-left {
+	padding-left:25px;
 }
 
 .pad-top {
