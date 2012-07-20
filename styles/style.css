@@ -119,6 +119,16 @@
 }
 
 /*----Members----*/
+.row-break {
+	margin: 28px 0px;
+}
+
+.button-row {
+	margin-left:auto;
+	margin-right:auto;
+	height:28px;
+}
+
 #new-member-info textarea {
 	resize:vertical;
 }
@@ -155,6 +165,10 @@
 .name-input {
 	width:47%;
 	margin-bottom: 5px;
+}
+
+#edit-first-name {
+	margin-right:4px;
 }
 
 #profile {
@@ -270,6 +284,10 @@
 .center-vertically {
 	display: table-cell;
 	vertical-align: middle;
+}
+
+.half-width {
+	width:49%;
 }
 
 div.center, img.center {

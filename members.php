@@ -48,13 +48,15 @@
 			<?php } ?>
 			<?php foreach (getProfiles($profilesDir) as $member) {?>
 				<div id="<?php echo $member->getFullname();?>" class="row pad-bottom">
-					<div class="span2">
+					<div class="span2 absolute-children">
 						<div class="thumbnail">
-							<img src="<?php echo $profilesDir."/".$member->headShot;?>"/>
+							<img id="<?php echo $member->getFullname();?>-headshot" src="<?php echo $profilesDir."/".$member->headShot;?>"/>
 							<h3 class="hero-font center"><?php echo $member->firstName;?></h3>
 							<?php if(loggedIn() && ($member->createdBy === username() || strcmp(username(), "admin") === 0)) { ?>
-							<button class="btn btn-warning" type="button" onclick="editableProfile('#<?php echo $member->getFullname();?>');">Edit</button>
-							<button class="btn btn-danger" type="button" onclick="deleteProfile('<?php echo $member->getFilename();?>');">Delete</button>
+							<div class="button-row">
+								<button class="btn btn-warning pull-left half-width" type="button" onclick="editableProfile('<?php echo $member->getFullname();?>','<?php echo $member->getFilename();?>');" >Edit</button>
+								<button class="btn btn-danger pull-right half-width" type="button" onclick="deleteProfile('<?php echo $member->getFilename();?>');">Delete</button>
+							</div>
 							<?php } ?>
 						</div>
 					</div>
@@ -62,13 +64,13 @@
 						<p class="profile-text"><?php echo $member->profile;?></p>
 						<p class="interests"><?php echo $member->interests;?></p>
 					</div>
-					<div class="span4">
+					<div class="span4 absolute-children">
 						<div class="thumbnail">
-							<img src="<?php echo $profilesDir."/".$member->actionShot?>"/>
+							<img id="<?php echo $member->getFullname();?>-actionshot" src="<?php echo $profilesDir."/".$member->actionShot?>"/>
 						</div>
 					</div>
 				</div>
-				<hr/>
+				<hr class="row-break"/>
 			<?php }?>
 		</div>
 	</div>

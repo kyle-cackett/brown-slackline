@@ -28,7 +28,7 @@
 		public $createdBy;
 
 		function getFullname() {
-			return strtolower($this->firstName)."-".strtolower($this->lastName);
+			return $this->firstName."-".$this->lastName;
 		}
 
 		function getFilename() {

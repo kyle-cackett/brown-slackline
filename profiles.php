@@ -9,8 +9,26 @@ if(loggedIn()) {
 
 	if(strcmp($method, "POST") === 0) {
 	
-		if(empty($_POST['firstName']) || empty($_POST['profile']) || empty($_POST['interests']) || empty($_FILES['headShot']) || empty($_FILES['actionShot'])) {
+		if(empty($_POST['firstName']) || empty($_POST['profile']) || empty($_POST['interests']) || (empty($_FILES['headShot']) || empty($_FILES['actionShot']) && !isset($_POST['filename']))) {
 			exit("All fields must be filled in!");
+		}
+
+		/*Editing profiles
+		If a profile already exists and no new photos were submitted
+		$old[photo] will have the name of the existing photo to use
+		in the new profile. If new photos do exist unlink the old ones.
+		*/
+		$oldMember = isset($_POST['filename']) ? getProfile($profilesDir,$_POST['filename']) : NULL;
+		$oldActionShot = NULL;
+		$oldHeadShot = NULL;
+		$oldCreator = NULL;
+		if (isset($oldMember)) {
+			$oldActionShot = $profilesDir."/".$oldMember->actionShot;
+			$oldHeadShot = $profilesDir."/".$oldMember->headShot;
+			$oldCreator = $oldMember->createdBy;
+			if ($_FILES['actionShot']['error'] != UPLOAD_ERR_NO_FILE) unlink($oldActionShot);
+			if ($_FILES['headShot']['error'] != UPLOAD_ERR_NO_FILE) unlink($oldHeadShot);
+			unlink($profilesDir."/".$oldMember->getFilename());	
 		}
 
 		$newMember = new Member();
@@ -20,19 +38,26 @@ if(loggedIn()) {
 		$newMember->interests = "Other Interests: ".$_POST['interests'];
 		$newMember->headShot = strtolower($newMember->firstName."_".$newMember->lastName)."_action.jpg";
 		$newMember->actionShot = strtolower($newMember->firstName."_".$newMember->lastName)."_head.jpg";
-		$newMember->createdBy = username();
+		$newMember->createdBy = isset($oldCreator) ? $oldCreator : username();
 
 		$filename = $profilesDir."/".strtolower($newMember->firstName)."_".strtolower($newMember->lastName).".txt";
 
-		if(file_exists($filename)) exit("Profile already exists :-(");
+		if(file_exists($filename) && !isset($_POST['filename'])) exit("Profile already exists :-(");
 
 		$file = fopen($filename, "w");
 		fwrite($file, serialize($newMember));
 		fclose($file);
 
-		move_uploaded_file($_FILES['headShot']['tmp_name'], $profilesDir."/".$newMember->headShot);
-		move_uploaded_file($_FILES['actionShot']['tmp_name'], $profilesDir."/".$newMember->actionShot);
-	
+		if ($_FILES['headShot']['error'] != UPLOAD_ERR_NO_FILE) {
+			move_uploaded_file($_FILES['headShot']['tmp_name'], $profilesDir."/".$newMember->headShot);
+		} else {
+			rename($oldHeadShot, $profilesDir."/".$newMember->headShot);
+		}
+		if ($_FILES['actionShot']['error'] != UPLOAD_ERR_NO_FILE) {
+			move_uploaded_file($_FILES['actionShot']['tmp_name'], $profilesDir."/".$newMember->actionShot);
+		} else {
+			rename($oldActionShot, $profilesDir."/".$newMember->actionShot);
+		}
 	} else if(strcmp($method, "DELETE") === 0) {
 
 		parse_str(file_get_contents("php://input"));
