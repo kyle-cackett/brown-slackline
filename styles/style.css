@@ -1,3 +1,16 @@
+h1 {
+	font: inherit;
+}
+
+@font-face {
+	font-family: 'BirthOfAHero';
+	src: url('../fonts/BirthOfAHero.eot'); /*IE9 Compat Modes*/
+	src:url('../fonts/BirthOfAHero.eot?#iefix') format('embedded-opentype'), 
+		url('../fonts/BirthOfAHero.woff') format('woff'),
+		url('../fonts/BirthOfAHero.ttf') format('truetype'),
+		url('../fonts/BirthOfAHero.svg') format('svg');
+}
+
 /*--Navbar Footer and Wordmark--*/
 .center.navbar .nav,
 .center.navbar .nav > li {
@@ -16,6 +29,8 @@
 #wordmark {
 	font-size:80pt;
 	margin-top:15px;
+	position: relative;
+	bottom:-9px;
 	height:54px;
 }
 
@@ -123,7 +138,16 @@
 	top: -550px;
 }
 
+#login-form {
+	width: 501px;
+}
+
 /*----Members----*/
+.name {
+	font: inherit;
+	font-size: 18pt;
+}
+
 .row-break {
 	margin: 28px 0px;
 }
@@ -235,12 +259,6 @@
 }
 
 /*----Multi-use Utility classes----*/
-@font-face {
-	font-family: 'BirthOfAHero';
-	src: url('../fonts/BirthOfAHero.eot');
-	src: url('../fonts/BirthOfAHero.ttf') format('truetype');
-}
-
 .hero-font {
 	font-family: BirthOfAHero;
 }
@@ -272,7 +290,7 @@
 }
 
 .pad-bottom {
-	padding-bottom:10px;
+	padding-bottom:25px;
 }
 
 .pad-right {

@@ -47,11 +47,11 @@
 			<hr/>
 			<?php } ?>
 			<?php foreach (getProfiles($profilesDir) as $member) {?>
-				<div id="<?php echo $member->getFullname();?>" class="row pad-bottom">
+				<div id="<?php echo $member->getFullname();?>" class="row">
 					<div class="span2 absolute-children">
 						<div class="thumbnail">
 							<img id="<?php echo $member->getFullname();?>-headshot" src="<?php echo $profilesDir."/".$member->headShot;?>"/>
-							<h3 class="hero-font center"><?php echo $member->firstName;?></h3>
+							<h3 class="hero-font center name"><?php echo $member->firstName;?></h3>
 							<?php if(loggedIn() && ($member->createdBy === username() || strcmp(username(), "admin") === 0)) { ?>
 							<div class="button-row">
 								<button class="btn btn-warning pull-left half-width" type="button" onclick="editableProfile('<?php echo $member->getFullname();?>','<?php echo $member->getFilename();?>');" >Edit</button>

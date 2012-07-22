@@ -15,7 +15,7 @@
                     <h3 class="center">Successfully logged in as "<?php echo username(); ?>"</h3>
                 </div>
             <?php } else { ?>
-                <form action="authenticate.php" method="post" class="well form-horizontal">    
+                <form id="login-form" action="authenticate.php" method="post" class="well form-horizontal">    
                     <input name="username" type="text" placeholder="Username"/>
                     <input name="password" type="password" placeholder="Password"/>
                     <button type="submit" class="btn">Login</button>
