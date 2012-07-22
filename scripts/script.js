@@ -41,6 +41,7 @@ $(window).scroll(function() {
 	}
 });
 
+
 function showModal(modalID) {
 	$('#mask').css({ 'display':'block','opacity':0});
 	$('#mask').fadeTo(500,0.8);
