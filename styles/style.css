@@ -334,3 +334,19 @@ div.center, img.center {
 	filter:alpha(opacity=0);
 	z-index: 2;
 }
+
+.modal-utilities {
+	position:fixed;
+	display:none;
+}
+
+#mask {
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	background-color:#000000;
+}
+
+#contact-modal {
+}

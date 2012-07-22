@@ -2,7 +2,8 @@
 	$navbar = "resources/navbar.php";
 	$frameworks = "resources/frameworks.html";
 	$resources = "resources/resources.html";
-	$footer = "resources/footer.html";
+	$footer = "resources/footer.php";
+	$captcha = "resources/recaptchalib.php";
 	
 	#--PHOTOS--#
 	$photosDir = "photos";
@@ -37,7 +38,7 @@
 	}
 
 	function loggedIn() {
-		if($_COOKIE['login']) {
+		if(isset($_COOKIE['login'])) {
 			list($c_username,$cookie_hash) = explode(',',$_COOKIE['login']);
     		if (md5($c_username.'tubular') == $cookie_hash) return true;
     	}
@@ -45,7 +46,7 @@
 	}
 
 	function username() {
-		if($_COOKIE['login'] && loggedIn()) return substr($_COOKIE['login'], 0, strpos($_COOKIE['login'],','));
+		if(isset($_COOKIE['login']) && loggedIn()) return substr($_COOKIE['login'], 0, strpos($_COOKIE['login'],','));
 		return NULL;
 	}	
 ?>
