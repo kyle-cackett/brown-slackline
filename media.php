@@ -11,12 +11,11 @@
 	</head>
 	<body>
 		<?php require $navbar;?>
-		<div id="background-home" class="background">
-			<img id="backdrop-links" class="backdrop pull-left" src="assets/bgLinks.png"/>
+		<div id="background-media" class="background">
 			<div class="container">
 				<h1 class="hero-font pagename pad-bottom">Media</h1>
-				<div class="span9 justify">
-				 	<div class="row pad-bottom">
+				<div class="span9 justify foreground-content">
+				 	<div class="row pad-bottom center">
 				  		<div class="span2 thumbnail">
 				  				<img src="assets/UrbanlinerMag.jpg"/>
 				  		</div>
@@ -27,7 +26,7 @@
 				  			</p>
 				  		</div>
 				  	</div>
-				  	<div class="row pad-bottom">
+				  	<div class="row pad-bottom center">
 				  		<div class="span6">
 				  			<h4><a href="http://blogdailyherald.com/2012/02/10/slacklinings-big-break-qa-with-bsc-president-hannah-varner/">Brown Daily Herald, "Slacklining's Big Break: Q&A with BSC President Hannah Varner"</a></h4> 
 				  			<p>The president of the Brown Slackline Club, Hannah Varner, was asked some questions about her experience 
@@ -37,7 +36,7 @@
 				  			<img src="assets/BDH_interview.jpg"/>
 					  	</div>
 					</div>
-					<div class="row pad-bottom">
+					<div class="row pad-bottom center">
 				  		<div class="span2 thumbnail">
 				  			<img src="assets/KingQueen2011.png"/>
 				  		</div>
@@ -50,7 +49,7 @@
 				  			</p>
 				  		</div>
 				  	</div>
-				  	<div class="row pad-bottom">
+				  	<div class="row pad-bottom center">
 				  		<div class="span6">
 				  			<h4><a href="http://www.browndailyherald.com/alum-slackliners-trick-their-way-to-the-top-1.2678998#.T7M0euhSSmA">Brown Daily Herald, "Alum Slackliners trick their way to the top"</a></h4> 
 				  			<p>Melissa Bowe and Kyle Cackett, were interveiwed about a competition they competed in, in 2012. The competition was

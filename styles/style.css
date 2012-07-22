@@ -44,7 +44,12 @@
 }
 
 #background-login {
-	background-image: url('../assets/bgLogin.jpg')
+	background-image: url('../assets/bgLogin.jpg');
+}
+
+#background-media {
+	background-image: url('../assets/line4.svg'), url('../assets/bgMedia.png');
+	background-position: 0% 134%, 95% 20%;
 }
 
 #backdrop-home {
@@ -232,6 +237,7 @@
 /*----Multi-use Utility classes----*/
 @font-face {
 	font-family: 'BirthOfAHero';
+	src: url('../fonts/BirthOfAHero.eot');
 	src: url('../fonts/BirthOfAHero.ttf') format('truetype');
 }
 
@@ -288,6 +294,14 @@
 
 .half-width {
 	width:49%;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.foreground-content {
+	background-color:#FFFFFF;
 }
 
 div.center, img.center {

@@ -14,7 +14,7 @@
 		<div id="background-links" class="background">
 			<div class="container">
 				<h1 class="hero-font pagename pad-bottom offset1">Links</h1>
-				<div class="span8 justify pad-left offset1">
+				<div class="span8 justify pad-left offset1 foreground-content">
 					<h3>Slackline Companies</h3>	
 						<dl class="dl-horizontal">
 							<dt><a href="http://www.gibbonslacklines.com/">Gibbon Slacklines</a></dt>
