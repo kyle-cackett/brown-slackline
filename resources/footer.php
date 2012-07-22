@@ -18,7 +18,7 @@ if (!empty($_POST)) {
         	if(isset($_POST['email']) && isset($_POST['message'])) {
         		$subject = isset($_POST['subject'])? $_POST['subject'] : "Hello Brown Slackline!";
         		$headers = 'From: '.$_POST['email']."\r\n".'Reply-To: '.$_POST['email']."\r\n"; 
-        		mail('kyle.cackett@gmail.com', $subject, $_POST['message'], $headers);
+        		mail('kyle.cackett@gmail.com, mbowe7@gmail.com', $subject, $_POST['message'], $headers);
         	}
         	
         }
