@@ -38,6 +38,10 @@ h1 {
 	background-color: #9bc72a;
 }
 
+#navbar {
+	z-index:0;
+}
+
 /*----Backgrounds----*/
 #background-home {
 	background-image: url('../assets/line1.svg');
@@ -349,4 +353,5 @@ div.center, img.center {
 }
 
 #contact-modal {
+	z-index:2;
 }
