@@ -39,7 +39,7 @@ h1 {
 }
 
 #navbar {
-	z-index:0;
+	z-index:1;
 }
 
 /*----Backgrounds----*/
@@ -350,8 +350,9 @@ div.center, img.center {
 	height:100%;
 	width:100%;
 	background-color:#000000;
+	z-index:2;
 }
 
 #contact-modal {
-	z-index:2;
+	z-index:3;
 }
