@@ -8,7 +8,6 @@ jQuery(function() {
 
 
 $(document).ready(function() {
-	$('#navbar').css('position', 'relative');
 	$(active).attr('class','active');
 	$(active+' a').attr('href','#')
 });

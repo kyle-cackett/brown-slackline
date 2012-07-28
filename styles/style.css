@@ -39,6 +39,7 @@ h1 {
 }
 
 #navbar {
+	position: relative;
 	z-index:1;
 }
 
