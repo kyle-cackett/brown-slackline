@@ -2,6 +2,7 @@
 <?php require "resources/constants.php";?>
 <html>
 	<head>
+		<meta name="google-site-verification" content="3MxMqpSICCn8SvJde4t-0chlxc0b3fLK0G0Ov2pIPSc"/>
 		<title>Brown Slackline</title>
 		<?php require $frameworks;?>
 		<script type="text/javascript">
